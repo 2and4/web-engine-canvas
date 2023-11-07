@@ -1,0 +1,93 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: ['*']
+  pull_request:
+    branches: ['*']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3 
+
+    - name: Build Project
+      run: npm ci && npm run build
+
+    - name: Setup Artifact
+      run: cp -r ./src/ts ./dist && cp ./readme.md ./license.txt ./dist
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-artifact
+        path: ./dist
+
+  tests:
+    runs-on: ubuntu-latest
+    
+    needs: [build]
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3 
+
+    - name: Execute Tests
+      run: npm ci && npm test
+
+  deploy-github:
+    if: ${{github.ref == 'refs/heads/main'}}
+    runs-on: ubuntu-latest
+    
+    needs: [tests]
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        registry-url: 'https://npm.pkg.github.com/'
+        scope: '<@OWNER>'
+
+    - name: Download Artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: build-artifact
+        path: ./dist
+      
+    - name: Setup Package
+      run: cp ./src/package.git.json ./src/.npmignore ./dist
+
+    - name: Publish Package
+      run: mv package.git.json package.json && npm publish
+      working-directory: ./dist
+
+    env:
+      NODE_AUTH_TOKEN: ${{secrets.PRIVATE_PACKAGE_TOKEN}}
+
+  deploy-npm:
+    if: ${{github.ref == 'refs/heads/main'}}
+    runs-on: ubuntu-latest
+    
+    needs: [tests]
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        registry-url: 'https://registry.npmjs.org'
+
+    - name: Download Artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: build-artifact
+        path: ./dist
+
+    - name: Setup Package
+      run: cp ./src/package.npm.json ./src/.npmignore ./dist
+
+    - name: Publish Package
+      run: mv package.npm.json package.json && npm publish
+      working-directory: ./dist
+
+    env:
+      NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

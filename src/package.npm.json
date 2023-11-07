@@ -1,0 +1,16 @@
+{
+  "license": "MIT",
+  "name": "web-engine-canvas",
+  "author": "2and4 - Matthias Ritter",
+  "version": "1.0.2-alpha",
+  "description": "Web Engine Canvas",
+  "keywords": ["canvas", "engine", "animation", "game"],
+  "main": "./js/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:2and4/web-engine-canvas.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "web-engine-canvas",
+  "author": "2and4 - Matthias Ritter",
+  "homepage": "https://github.com/2and4/web-engine-canvas",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc --build",
+    "build-tests": "tsc --project tsconfig.tests.json",
+    "test": "npm run build-tests && jasmine",
+    "test-dev": "npm run build-tests && nodemon --exec nyc jasmine",
+    "test-debug": "npm run build-tests && node node_modules/jasmine/bin/jasmine.js",
+    "generate-coverage": "nyc --reporter html --report-dir docs/coverage jasmine",
+    "generate-docs": "typedoc --options ./src/typedoc.json && npm run generate-coverage",
+    "deploy-local": "tsc --build && npm run deploy-files && npm run deploy-config",
+    "deploy-files": "copyfiles -u 1 './src/ts/**/*' dist && copyfiles readme.md license.txt dist",
+    "deploy-config": "copyfiles -u 1 ./src/package.*.json ./src/.npmignore dist"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^4.3.5",
+    "@types/node": "^20.6.0",
+    "copyfiles": "^2.4.1",
+    "jasmine": "^5.1.0",
+    "jsdom": "^22.1.0",
+    "nodemon": "^3.0.1",
+    "nyc": "^15.1.0",
+    "typedoc": "^0.25.1",
+    "typescript": "^5.2.2"
+  }
+}

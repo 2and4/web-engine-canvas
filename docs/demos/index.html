@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Web Engine Canvas Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="description" content="Web Engine Canvas Demo">
+    <meta name="author" content="Matthias Ritter">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <div class="grid-container">
+
+        <div class="grid-item first-row-disabled">
+            <engine-canvas id="pong" target-resolution="1920x1080" max-resolution="1920x1080"></engine-canvas>
+        </div>
+        <div class="grid-item first-row-disabled">
+            <engine-canvas id="street" target-resolution="1600x900" max-resolution="1600x900"></engine-canvas>
+        </div>
+
+        <div class="grid-item second-row-disabled">
+            <engine-canvas id="fan" target-resolution="1920x1080" max-resolution="1920x1080"></engine-canvas>
+        </div>
+        <div class="grid-item second-row-disabled">
+            <engine-canvas id="ruler" target-resolution="1920x1080" max-resolution="1920x1080"></engine-canvas>
+        </div>
+
+    </div>
+    <script src="./index.js"></script>
+</body>
+
+</html>
