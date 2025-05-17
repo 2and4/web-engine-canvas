@@ -1,21 +1,26 @@
-Web Engine Canvas
-===
+# Web Engine Canvas
+
+### Version 1.1.0-alpha
 
 A **simple**, **lightweight** and completely **dependency free** canvas engine.<br/>
 Create games, complex animations or specialized business solutions.<br/>
 
-Direct usage in your project as **ES6 NativeModules** or via **TypeScript**.
+- **[Architecture](/ARCHITECTURE.md)**
+- **[Code Documentation](https://2and4.github.io/web-engine-canvas/typedoc/)**
+- **[Tests Coverage](https://2and4.github.io/web-engine-canvas/coverage/)**
+- **[Changelog](/CHANGELOG.md)**
 
 ### Examples
 
-* [Business Solutions](https://2and4.github.io/web-engine-canvas/demos/?apps)
-* [Games And Animations](https://2and4.github.io/web-engine-canvas/demos/?games)
+- **[Business Solutions](https://2and4.github.io/web-engine-canvas/example/?apps)**
+- **[Games And Animations](https://2and4.github.io/web-engine-canvas/example/?games)**
 
-### Information
+### Package Footprint
 
-* [Code Documentation](https://2and4.github.io/web-engine-canvas/)
-* [Code Tests Coverage](https://2and4.github.io/web-engine-canvas/coverage/)
-
+| Library | Size  |
+|---------|-------|
+| ESM     | ~38KB |
+| UMD     | ~31KB |
 
 ## Concept
 
@@ -24,11 +29,10 @@ The engine follows a simple concept &#8594; **scenes with entities**:
 * A scene is a component that consumes entities and calls three phases for them.
 * A entity is a component that can react to every scene phase.
 
-#### Scene Phases:
+**Scene Phases:**
 1. **Update**: Update programmatic logic for the entity.
 2. **Collision**: Handle collisions with other entities. 
 3. **Draw**: Display the entity on the canvas.
-
 
 ## Quick Setup
 
@@ -47,7 +51,7 @@ npm install web-engine-canvas
 3. **Retrieve** the engine from the WebComponent.
 
 ```javascript
-import { EngineCanvas } from "[EnginePath]/engineCanvas.js";
+import { EngineCanvas } from "web-engine-canvas";
 
 const engine = EngineCanvas.getEngine("webcomponent-id", window);
 ```

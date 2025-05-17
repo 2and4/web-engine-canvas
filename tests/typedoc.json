@@ -1,0 +1,12 @@
+{
+    "name": "Web Engine Canvas",
+    "headings": {
+        "readme": false
+    },
+    "navigation": {
+        "includeGroups": false
+    },
+    "githubPages": false,
+    "entryPoints": ["../src/index.ts"],
+    "out": "../docs/typedoc"
+}

@@ -1,6 +1,0 @@
-{
-    "name": "Web Engine Canvas",
-    "readme": "./typedoc.md",
-    "entryPoints": ["./ts/index.ts"],
-    "out": "../docs"
-}
