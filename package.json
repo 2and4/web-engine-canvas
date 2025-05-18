@@ -10,9 +10,6 @@
     "animations",
     "games"
   ],
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
-  },
   "repository": {
     "type": "git",
     "url": "git@github.com:2and4/web-engine-canvas.git"
