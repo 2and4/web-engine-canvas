@@ -1,6 +1,6 @@
 # Web Engine Canvas
 
-### Version 1.1.0-alpha
+### Version 1.1.1-alpha
 
 A **simple**, **lightweight** and completely **dependency free** canvas engine.<br/>
 Create games, complex animations or specialized business solutions.<br/>

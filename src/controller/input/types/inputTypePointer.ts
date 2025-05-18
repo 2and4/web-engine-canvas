@@ -41,10 +41,10 @@ export class InputTypePointer extends InputType implements IInputTypePointer {
         this.inputReceiver.addEventListener("mouseup", this.onPointerUp);
         this.inputReceiver.addEventListener("mousemove", this.onPointerMove);
         this.inputReceiver.addEventListener("mouseleave", this.onPointerLeave);
-        this.inputReceiver.addEventListener("touchstart", this.onTouchStart);
-        this.inputReceiver.addEventListener("touchmove", this.onTouchMove);
-        this.inputReceiver.addEventListener("touchcancel", this.onTouchEnd);
-        this.inputReceiver.addEventListener("touchend", this.onTouchEnd);
+        this.inputReceiver.addEventListener("touchstart", this.onTouchStart, { passive: true });
+        this.inputReceiver.addEventListener("touchmove", this.onTouchMove, { passive: true });
+        this.inputReceiver.addEventListener("touchcancel", this.onTouchEnd, { passive: true });
+        this.inputReceiver.addEventListener("touchend", this.onTouchEnd, { passive: true });
     }
 
     public destroy(): void {

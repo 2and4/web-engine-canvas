@@ -38,10 +38,10 @@ describe("inputTypePointer:", (): void => {
         expect(mockInputReceiver.addEventListener).toHaveBeenCalledWith("mouseup", (<any>inputTypePointer).onPointerUp);
         expect(mockInputReceiver.addEventListener).toHaveBeenCalledWith("mousemove", (<any>inputTypePointer).onPointerMove);
         expect(mockInputReceiver.addEventListener).toHaveBeenCalledWith("mouseleave", (<any>inputTypePointer).onPointerLeave);
-        expect(mockInputReceiver.addEventListener).toHaveBeenCalledWith("touchstart", (<any>inputTypePointer).onTouchStart);
-        expect(mockInputReceiver.addEventListener).toHaveBeenCalledWith("touchmove", (<any>inputTypePointer).onTouchMove);
-        expect(mockInputReceiver.addEventListener).toHaveBeenCalledWith("touchcancel", (<any>inputTypePointer).onTouchEnd);
-        expect(mockInputReceiver.addEventListener).toHaveBeenCalledWith("touchend", (<any>inputTypePointer).onTouchEnd);
+        expect(mockInputReceiver.addEventListener).toHaveBeenCalledWith("touchstart", (<any>inputTypePointer).onTouchStart, { passive: true });
+        expect(mockInputReceiver.addEventListener).toHaveBeenCalledWith("touchmove", (<any>inputTypePointer).onTouchMove, { passive: true });
+        expect(mockInputReceiver.addEventListener).toHaveBeenCalledWith("touchcancel", (<any>inputTypePointer).onTouchEnd, { passive: true });
+        expect(mockInputReceiver.addEventListener).toHaveBeenCalledWith("touchend", (<any>inputTypePointer).onTouchEnd, { passive: true });
     });
 
     it("destroy -> inputTypePointer has been destroyed", (): void => {

@@ -1,6 +1,6 @@
 {
   "license": "MIT",
-  "version": "1.1.0-alpha",
+  "version": "1.1.1-alpha",
   "name": "web-engine-canvas",
   "author": "2and4 - Matthias Ritter",
   "description": "A simple, lightweight and completely dependency free html canvas engine.",
@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "typescript": "^5.8.3",
-    "vite": "^6.3.4",
-    "vite-plugin-dts": "^4.5.3"
+    "vite": "^6.3.5",
+    "vite-plugin-dts": "^4.5.4"
   }
 }
